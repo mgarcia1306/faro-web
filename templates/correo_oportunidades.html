@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<style>
+
+body{
+    margin:0;
+    padding:0;
+    background:#f5f9fc;
+    font-family:Arial,sans-serif;
+    color:#1b1b1b;
+}
+
+.container{
+    max-width:650px;
+    margin:auto;
+    background:white;
+}
+
+.header{
+    background: linear-gradient(
+        135deg,
+        #000f31 0%,
+        #1d4c8c 50%,
+        #ceeaf6 100%
+    );
+    text-align:center;
+    padding:35px;
+}
+
+.logo{
+    width:180px;
+    max-width:80%;
+}
+
+.card{
+    padding:40px;
+}
+
+h1{
+    color:#000f31;
+    font-size:28px;
+    margin-bottom:25px;
+}
+
+.destacado{
+    background:#eef7fc;
+    border-left:5px solid #1d4c8c;
+    padding:18px;
+    border-radius:8px;
+    margin:25px 0;
+}
+
+.numero{
+    font-size:34px;
+    font-weight:bold;
+    color:#000f31;
+}
+
+.boton{
+    display:inline-block;
+
+    margin-top:25px;
+
+    background:#000f31;
+    color:white !important;
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.footer{
+    background:#f5f9fc;
+    text-align:center;
+    color:#777;
+    font-size:13px;
+    padding:25px;
+}
+
+.faro-footer{
+    width:45px;
+    opacity:0.95;
+    margin-bottom:12px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <img src="cid:logo_header" class="logo">
+    </div>
+
+    <div class="card">
+
+        <h1>
+        Hola {{cliente}},
+        </h1>
+
+        <p>
+
+        Se han detectado nuevas oportunidades de compra pública
+        según el perfil configurado para tu empresa.
+
+        </p>
+
+
+        <div class="destacado">
+
+            <div class="numero">
+
+                {{cantidad}}
+
+            </div>
+
+            oportunidades encontradas
+
+            <br><br>
+
+            <strong>Búsqueda:</strong>
+
+            {{busqueda}}
+
+            <br>
+
+            <strong>Región:</strong>
+
+            {{region}}
+
+        </div>
+
+
+        <p>
+
+        Hemos adjuntado un archivo pdf con el detalle
+        completo de las oportunidades encontradas.
+
+        </p>
+
+        <br><br>
+
+        <p>
+
+        Gracias por confiar en FARO.
+
+        Seguiremos monitoreando automáticamente nuevas
+        oportunidades y te avisaremos cuando aparezcan.
+
+        </p>
+
+    </div>
+
+
+    <div class="footer">
+
+        <img src="cid:faro_footer" class="faro-footer">
+
+        <br>
+
+        Monitoreo inteligente de oportunidades públicas
+
+        <br><br>
+
+        Este es un correo automático.
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
