@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FARO | Prueba Gratuita</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <header class="hero">
+    <a href="index.html"><img src="img/logo.png" class="logo" alt="FARO"></a>
+    <h1>Prueba Gratuita FARO</h1>
+    <p>Durante 30 días monitorearemos Mercado Público por ti.</p>
+    <p>✓ 2 monitoreos diarios</p>
+    <p>✓ Correos automáticos</p>
+    <p>✓ Monitoreo de 1 rubro o producto</p>
+  </header>
+
+  <section class="formulario">
+    <form id="clienteForm">
+
+      <h2>Datos de la empresa</h2>
+
+      <div class="form-group">
+        <label for="empresa">Nombre empresa *</label>
+        <input type="text" id="empresa" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contacto">Nombre contacto *</label>
+        <input type="text" id="contacto" required>
+      </div>
+
+      <div class="form-group-row">
+        <div class="form-group">
+          <label for="correo">Correo electrónico *</label>
+          <input type="email" id="correo" required>
+        </div>
+        <div class="form-group">
+          <label for="correo2">Confirmar correo *</label>
+          <input type="email" id="correo2" required>
+        </div>
+      </div>
+
+      <div class="form-group-row">
+        <div class="form-group">
+          <label for="telefono">Teléfono (opcional)</label>
+          <input type="text" id="telefono">
+        </div>
+        <div class="form-group">
+          <label for="region">Región *</label>
+          <select id="region" required>
+            <option value="">Seleccione</option>
+            <option>Arica y Parinacota</option>
+            <option>Tarapacá</option>
+            <option>Antofagasta</option>
+            <option>Atacama</option>
+            <option>Coquimbo</option>
+            <option>Valparaíso</option>
+            <option>Metropolitana</option>
+            <option>O'Higgins</option>
+            <option>Maule</option>
+            <option>Biobío</option>
+            <option>Araucanía</option>
+            <option>Los Ríos</option>
+            <option>Los Lagos</option>
+            <option>Aysén</option>
+            <option>Magallanes</option>
+          </select>
+        </div>
+      </div>
+
+      <h2>Experiencia</h2>
+
+      <div class="form-group">
+        <label for="experiencia">¿Ha participado antes en Mercado Público?</label>
+        <select id="experiencia">
+          <option>Nunca</option>
+          <option>Sí, ocasionalmente</option>
+          <option>Sí, frecuentemente</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="inscrito">¿Está inscrito en Mercado Público?</label>
+        <select id="inscrito">
+          <option>Sí</option>
+          <option>No</option>
+          <option>No estoy seguro</option>
+        </select>
+      </div>
+
+      <h2>Cobertura</h2>
+      <label>¿Dónde ofrece sus productos o servicios?</label>
+      
+      <div id="cobertura" class="checkbox-grid">
+        <label class="checkbox-label full-width">
+          <input type="checkbox" id="todas-regiones"> <strong>Todas las regiones</strong>
+        </label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="15"> Arica y Parinacota</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="1"> Tarapacá</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="2"> Antofagasta</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="3"> Atacama</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="4"> Coquimbo</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="5"> Valparaíso</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="13"> Metropolitana</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="6"> O'Higgins</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="7"> Maule</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="16"> Ñuble</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="8"> Biobío</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="9"> Araucanía</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="14"> Los Ríos</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="10"> Los Lagos</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="11"> Aysén</label>
+        <label class="checkbox-label"><input type="checkbox" class="region" value="12"> Magallanes</label>
+      </div>
+
+      <h2>Rubro principal</h2>
+      <p class="form-help">
+        La prueba gratuita permite monitorear <strong>1 solo rubro o producto.</strong>
+      </p>
+      <div class="form-group">
+        <input type="text" id="buscar" placeholder="Buscar producto o servicio...">
+        <div id="resultados"></div>
+        <div id="seleccionados"></div>
+      </div>
+
+      <h2>Excluir oportunidades</h2>
+      <p class="form-help">Palabras o temas que NO deseas monitorear (una por línea).</p>
+      <div class="form-group">
+        <textarea id="excluir" rows="4" placeholder="Ejemplo:&#10;hospital&#10;casino&#10;alimentación"></textarea>
+      </div>
+
+      <h2>Tipo de oportunidades</h2>
+      <div class="checkbox-group">
+        <label class="checkbox-label"><input type="checkbox" checked id="licitaciones"> Licitaciones Públicas</label>
+        <label class="checkbox-label"><input type="checkbox" checked id="compras"> Compras Ágiles</label>
+        <label class="checkbox-label"><input type="checkbox" checked id="convenio"> Convenio Marco</label>
+        <label class="checkbox-label"><input type="checkbox" checked id="trato"> Trato Directo</label>
+      </div>
+
+      <h2>Términos</h2>
+      <div class="checkbox-group font-small">
+        <label class="checkbox-label"><input type="checkbox" required> Acepto recibir correos automáticos de FARO.</label>
+        <label class="checkbox-label"><input type="checkbox" required> Entiendo que la prueba gratuita dura 30 días.</label>
+        <label class="checkbox-label"><input type="checkbox" required> Entiendo que la prueba gratuita monitorea solo 1 rubro o producto.</label>
+      </div>
+
+      <button type="submit" class="btn btn-submit">🚀 ACTIVAR PRUEBA GRATUITA</button>
+    </form>
+  </section>
+
+  <script src="js/regiones_seleccion.js"></script>
+  <script src="js/rubros.js"></script>
+  <script src="js/formulario.js"></script>
+</body>
+
+</html>
