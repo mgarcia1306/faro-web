@@ -285,6 +285,10 @@ footer {
     font-size: 0.95rem;
 }
 
+#segundo_apellido {
+   display:none;
+}
+
 #clienteForm input[type="text"],
 #clienteForm input[type="email"],
 #clienteForm select,
