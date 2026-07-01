@@ -2,7 +2,7 @@
 // CAMBIAR ESTA URL POR LA DE TU APPS SCRIPT
 // =========================================
 
-const URL_SHEETS ="https://script.google.com/macros/s/AKfycbxjwDvPMpAb2KF8THxG22WItVFpXH9oDFgy-LQ4NS6B3k2qjRs8DWvUxbzb2z8X9-1p/exec";
+const URL_SHEETS ="https://script.google.com/macros/s/AKfycbw__uEtOFBZ5HjI0bJb1bbpyMXEyY64t4m4GuC_RkG35LUVC4jmONCcsJDZCMYVUT4i/exec";
 const form=document.getElementById("clienteForm");
 form.addEventListener
 (
