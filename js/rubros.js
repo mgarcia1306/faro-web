@@ -15,7 +15,7 @@ fetch("data/Listado_rubros_ONU.json")
     });
 
 buscar.addEventListener("input",()=>{
-    if(seleccionados.length>=1){return;}
+    if(seleccionados.length>=2){return;}
     const texto=buscar.value.toLowerCase().trim();
     if(texto.length<1){resultados.innerHTML="";return;}    
     const encontrados=rubros.filter(r=>
@@ -44,7 +44,7 @@ function mostrar(lista){
 }
 
 function agregar(r){
-    if(seleccionados.length>=2){alert("La prueba gratuita permite monitorear un solo rubro.");return;}
+    if(seleccionados.length>2){alert("La prueba gratuita permite monitorear solo 2 rubros.");return;}
     seleccionados.push(r);
     actualizar();
     buscar.value="";
