@@ -24,7 +24,7 @@ form.addEventListener
         const excluir=document.getElementById("excluir").value.split("\n").map(x=>x.trim()).filter(x=>x!="");
         const ficha=
         {
-            id:"FARO-"+Date.now(),
+            rut_empresa:document.getElementById("rut_empresa").value,
             empresa:document.getElementById("empresa").value,
             contacto:document.getElementById("contacto").value,
             correo:correo,
