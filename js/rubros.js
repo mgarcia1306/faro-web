@@ -44,7 +44,7 @@ function mostrar(lista){
 }
 
 function agregar(r){
-    if(seleccionados.length>2){alert("La prueba gratuita permite monitorear solo 2 rubros.");return;}
+    if(seleccionados.length>=2){alert("La prueba gratuita permite monitorear solo 2 rubros.");return;}
     seleccionados.push(r);
     actualizar();
     buscar.value="";
