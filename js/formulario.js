@@ -39,7 +39,7 @@ form.addEventListener
             fecha_inicio:new Date().toISOString().slice(0,10),
             fecha_fin:"", // se calculará después
             ultimo_correo:"",
-            rubro:seleccionados[0],
+            rubro:seleccionados[1], // cambiar el numero segun la cantidad de rubros que acepta el plan
             excluir:excluir,
             tipos:
             {
