@@ -13,11 +13,12 @@
     <a href="index.html"><img src="img/logo.png" class="logo" alt="FARO"></a>
     <h1>Prueba Gratuita FARO</h1>
     <section class="gratis">
+      <h2>Durante 30 días monitorearemos Compras Ágiles por ti.</h2>
       <ul>
-        <li>Durante 30 días monitorearemos Compras Ágiles por ti.</li>
         <li> 2 monitoreos diarios</li>
-        <li> Correos automáticos</li>
-        <li> Monitoreo máximo de 2 rubros o productos</li>
+        <li> Monitoreo de hasta 3 productos o servicios</li>
+        <li> Correos automáticos con informes</li>        
+        <li> Score FARO de cada organismo para que cotices con confianza</li>
       </ul>
     </section>
   </header>
@@ -28,12 +29,12 @@
       <h2>Datos de la empresa</h2>
 
       <div class="form-group">
-        <label for="empresa" class="campo-requerido" title="Campo obligatorio">Nombre de su empresa</label>
+        <label for="empresa" class="campo-requerido" title="Campo obligatorio">Nombre de tu empresa</label>
         <input type="text" id="empresa" required>
       </div>
 
       <div class="form-group">
-        <label for="rut_empresa" class="campo-requerido" title="Campo obligatorio">RUT de su empresa</label>
+        <label for="rut_empresa" class="campo-requerido" title="Campo obligatorio">RUT de tu empresa</label>
         <input type="text" id="rut_empresa" required>
       </div>
 
@@ -64,7 +65,7 @@
           <input type="text" id="telefono">
         </div>
         <div class="form-group">
-          <label for="region" class="campo-requerido" title="Campo obligatorio">Región de su empresa</label>
+          <label for="region" class="campo-requerido" title="Campo obligatorio">Ubicación de su empresa</label>
           <select id="region" required>
             <option value="">Seleccione</option>
             <option>Arica y Parinacota</option>
@@ -107,7 +108,7 @@
       </div>
 
       <h2>Cobertura</h2>
-      <label class="campo-requerido" title="Campo obligatorio">¿Dónde ofrece sus productos o servicios?</label>
+      <label class="campo-requerido" title="Campo obligatorio">¿En cuáles regiones ofrece sus productos o servicios? Elija todas las que apliquen</label>
       
       <div id="cobertura" class="checkbox-grid">
         <label class="checkbox-label full-width">
@@ -131,7 +132,16 @@
         <label class="checkbox-label"><input type="checkbox" class="region" value="12"> Magallanes</label>
       </div>
 
-      <h2>Rubro principal de la empresa</h2>
+      <h2>Excluir oportunidades</h2>
+      <label class="form-help" title="Campo obligatorio">Productos o servicios que desea monitorear (una por línea).
+        La prueba gratuita permite monitorear <strong>solo 3 productos o servicios.</strong>
+      </label>
+      <div class="form-group">
+        <textarea id="productos-servicios" rows="4" placeholder="Ejemplo:&#10;instalacion de sistema CCTV&#10;guantes quirurgicos&#10;banqueteria y catering"></textarea>
+      </div>
+      
+      
+      <!-- <h2>Servicios o productos de la empresa</h2>
       <label class="form-help" title="Campo obligatorio">
         La prueba gratuita permite monitorear <strong>solo 2 rubros generales, productos o servicios.</strong>
       </label>
@@ -139,13 +149,13 @@
         <input type="text" id="buscar" placeholder="Buscar producto o servicio...">
         <div id="resultados"></div>
         <div id="seleccionados"></div>
-      </div>
+      </div> -->
 
-      <h2>Excluir oportunidades</h2>
+      <!-- <h2>Excluir oportunidades</h2>
       <label class="form-help" title="Campo obligatorio">Productos o servicios que NO desea monitorear (una por línea).</label>
       <div class="form-group">
         <textarea id="excluir" rows="4" placeholder="Ejemplo:&#10;hospital&#10;casino&#10;alimentación"></textarea>
-      </div>
+      </div> -->
 
      <!-- <h2>Tipo de oportunidades</h2>
        <div class="checkbox-group">
@@ -157,9 +167,9 @@
 
       <h2>Términos</h2>
       <div class="checkbox-group font-small">
-        <label class="checkbox-label" required class="campo-requerido"><input type="checkbox" required> Acepto recibir correos automáticos de FARO.</label>
-        <label class="checkbox-label" required class="campo-requerido"><input type="checkbox" required> Entiendo que la prueba gratuita dura 30 días.</label>
-        <label class="checkbox-label" required class="campo-requerido"><input type="checkbox" required> Entiendo que la prueba gratuita monitorea solo 2 rubros o productos.</label>
+        <label class="checkbox-label" required class="campo-requerido" title="Campo obligatorio"><input type="checkbox" required> Acepto recibir correos automáticos de FARO.</label>
+        <label class="checkbox-label" required class="campo-requerido" title="Campo obligatorio"><input type="checkbox" required> Entiendo que la prueba gratuita dura 30 días.</label>
+        <label class="checkbox-label" required class="campo-requerido" title="Campo obligatorio"><input type="checkbox" required> Entiendo que la prueba gratuita monitorea solo 2 rubros o productos.</label>
       </div>
 
       <button type="submit" class="btn btn-submit">🚀 ACTIVAR PRUEBA GRATUITA</button>
