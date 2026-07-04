@@ -242,10 +242,17 @@ footer {
     padding: 50px 20px;
 }
 
+/* Agrega el asterisco rojo y en negrita */
 .campo-requerido::after {
-  content: " *";      /* Agrega el asterisco mediante CSS */
-  color: red;         /* Lo pinta de rojo */
-  font-weight: bold;  /* Lo pone en negrita */
+  content: " *";
+  color: red;
+  font-weight: bold;
+}
+
+/* Opcional: Si quieres que el usuario sepa qué significa el asterisco, 
+   puedes cambiar el cursor cuando pase por encima del label */
+.campo-requerido {
+  cursor: help;
 }
 
 #clienteForm {
