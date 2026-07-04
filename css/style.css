@@ -242,6 +242,12 @@ footer {
     padding: 50px 20px;
 }
 
+.campo-requerido::after {
+  content: " *";      /* Agrega el asterisco mediante CSS */
+  color: red;         /* Lo pinta de rojo */
+  font-weight: bold;  /* Lo pone en negrita */
+}
+
 #clienteForm {
     background: white;
     padding: 40px;
