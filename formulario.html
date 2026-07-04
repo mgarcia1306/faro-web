@@ -12,10 +12,10 @@
   <header class="hero">
     <a href="index.html"><img src="img/logo.png" class="logo" alt="FARO"></a>
     <h1>Prueba Gratuita FARO</h1>
-    <p>Durante 30 días monitorearemos Mercado Público por ti.</p>
+    <p>Durante 30 días monitorearemos Compras Ágiles por ti.</p>
     <p>✓ 2 monitoreos diarios</p>
     <p>✓ Correos automáticos</p>
-    <p>✓ Monitoreo de 1 rubro o producto</p>
+    <p>✓ Monitoreo máximo de 2 rubros o productos</p>
   </header>
 
   <section class="formulario">
@@ -24,17 +24,17 @@
       <h2>Datos de la empresa</h2>
 
       <div class="form-group">
-        <label for="empresa">Nombre empresa *</label>
+        <label for="empresa" class="campo-requerido">Nombre de su empresa</label>
         <input type="text" id="empresa" required>
       </div>
 
       <div class="form-group">
-        <label for="rut_empresa">RUT empresa *</label>
+        <label for="rut_empresa" class="campo-requerido">RUT de su empresa</label>
         <input type="text" id="rut_empresa" required>
       </div>
 
       <div class="form-group">
-        <label for="contacto">Nombre contacto </label>
+        <label for="contacto" class="campo-requerido">Nombre de contacto</label>
         <input type="text" id="contacto">
       </div>
 
@@ -45,22 +45,22 @@
 
       <div class="form-group-row">
         <div class="form-group">
-          <label for="correo">Correo electrónico *</label>
+          <label for="correo" class="campo-requerido">Correo electrónico</label>
           <input type="email" id="correo" required>
         </div>
         <div class="form-group">
-          <label for="correo2">Confirmar correo *</label>
+          <label for="correo2" class="campo-requerido">Confirmar correo</label>
           <input type="email" id="correo2" required>
         </div>
       </div>
 
       <div class="form-group-row">
         <div class="form-group">
-          <label for="telefono">Teléfono (opcional)</label>
+          <label for="telefono">Whatsapp</label>
           <input type="text" id="telefono">
         </div>
         <div class="form-group">
-          <label for="region">Región *</label>
+          <label for="region" class="campo-requerido">Región de su empresa</label>
           <select id="region" required>
             <option value="">Seleccione</option>
             <option>Arica y Parinacota</option>
@@ -85,7 +85,7 @@
       <h2>Experiencia</h2>
 
       <div class="form-group">
-        <label for="experiencia">¿Ha participado antes en Mercado Público?</label>
+        <label for="experiencia" class="campo-requerido">¿Ha participado antes en Mercado Público?</label>
         <select id="experiencia">
           <option>Nunca</option>
           <option>Sí, ocasionalmente</option>
@@ -94,7 +94,7 @@
       </div>
 
       <div class="form-group">
-        <label for="inscrito">¿Está inscrito en Mercado Público?</label>
+        <label for="inscrito" class="campo-requerido">¿Está inscrito en el Registro de Proveedores?</label>
         <select id="inscrito">
           <option>Sí</option>
           <option>No</option>
@@ -103,7 +103,7 @@
       </div>
 
       <h2>Cobertura</h2>
-      <label>¿Dónde ofrece sus productos o servicios?</label>
+      <label class="campo-requerido">¿Dónde ofrece sus productos o servicios?</label>
       
       <div id="cobertura" class="checkbox-grid">
         <label class="checkbox-label full-width">
@@ -127,9 +127,9 @@
         <label class="checkbox-label"><input type="checkbox" class="region" value="12"> Magallanes</label>
       </div>
 
-      <h2>Rubro principal</h2>
+      <h2>Rubro principal de la empresa</h2>
       <p class="form-help">
-        La prueba gratuita permite monitorear <strong>solo 2 rubros o productos.</strong>
+        La prueba gratuita permite monitorear <strong>solo 2 rubros generales, productos o servicios.</strong>
       </p>
       <div class="form-group">
         <input type="text" id="buscar" placeholder="Buscar producto o servicio...">
@@ -138,24 +138,24 @@
       </div>
 
       <h2>Excluir oportunidades</h2>
-      <p class="form-help">Palabras o temas que NO deseas monitorear (una por línea).</p>
+      <p class="form-help">Productos o servicios que NO desea monitorear (una por línea).</p>
       <div class="form-group">
         <textarea id="excluir" rows="4" placeholder="Ejemplo:&#10;hospital&#10;casino&#10;alimentación"></textarea>
       </div>
 
-      <h2>Tipo de oportunidades</h2>
-      <div class="checkbox-group">
+     <!-- <h2>Tipo de oportunidades</h2>
+       <div class="checkbox-group">
         <label class="checkbox-label"><input type="checkbox" checked id="licitaciones"> Licitaciones Públicas</label>
         <label class="checkbox-label"><input type="checkbox" checked id="compras"> Compras Ágiles</label>
         <label class="checkbox-label"><input type="checkbox" checked id="convenio"> Convenio Marco</label>
         <label class="checkbox-label"><input type="checkbox" checked id="trato"> Trato Directo</label>
-      </div>
+      </div> -->
 
       <h2>Términos</h2>
       <div class="checkbox-group font-small">
-        <label class="checkbox-label"><input type="checkbox" required> Acepto recibir correos automáticos de FARO.</label>
-        <label class="checkbox-label"><input type="checkbox" required> Entiendo que la prueba gratuita dura 30 días.</label>
-        <label class="checkbox-label"><input type="checkbox" required> Entiendo que la prueba gratuita monitorea solo 1 rubro o producto.</label>
+        <label class="checkbox-label"><input type="checkbox" required class="campo-requerido"> Acepto recibir correos automáticos de FARO.</label>
+        <label class="checkbox-label"><input type="checkbox" required class="campo-requerido"> Entiendo que la prueba gratuita dura 30 días.</label>
+        <label class="checkbox-label"><input type="checkbox" required class="campo-requerido"> Entiendo que la prueba gratuita monitorea solo 2 rubros o productos.</label>
       </div>
 
       <button type="submit" class="btn btn-submit">🚀 ACTIVAR PRUEBA GRATUITA</button>
