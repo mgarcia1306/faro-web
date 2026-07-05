@@ -25,6 +25,11 @@ body {
     box-shadow: inset 0 -120px 100px -100px rgba(0, 0, 0, 0.9);
 }
 
+.logo-contenedor {
+   width: 200%;
+   padding: 15px;
+}
+
 .logo {
     width: 160px;
     max-width: 80%;
