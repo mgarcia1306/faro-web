@@ -101,7 +101,7 @@ if (form) {
             COBERTURA: regionesSeleccionadas, // Array que procesa Apps Script
             PRODUCTOS_SERVICIOS: productosFormateados, // Cadena limpia con separador "|"
             PLAN: "GRATUITO",
-            ESTADO: "activo"
+            ESTADO: "activo",
             
             // FILTRO SPAM (HONEYPOT): Se lee directo del DOM saltándose el filtro de visibilidad.
             // Si tiene texto, un bot cayó en la trampa.
