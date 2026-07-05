@@ -294,6 +294,13 @@ footer {
     padding: 50px 20px;
 }
 
+.para {
+   border-radius: 10px;
+   padding: 50px 80px 30px 80px;
+   background-color: #787ee529;
+   margin-bottom: 20px;
+}
+
 /* Agrega el asterisco rojo y en negrita */
 .campo-requerido::after {
   content: " *";
