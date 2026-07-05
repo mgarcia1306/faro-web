@@ -94,7 +94,7 @@ if (form) {
             EMPRESA: obtenerValor("empresa"),
             CONTACTO: obtenerValor("contacto"),
             CORREO: correo,
-            WHATSAPP: obtenerValor("whatsapp4"),
+            WHATSAPP: obtenerValor("whatsapp"),
             REGION: obtenerValor("region"), 
             EXPERIENCIA: obtenerValor("experiencia"),
             INSCRITO: obtenerValor("inscrito"),
@@ -105,7 +105,7 @@ if (form) {
             
             // FILTRO SPAM (HONEYPOT): Se lee directo del DOM saltándose el filtro de visibilidad.
             // Si tiene texto, un bot cayó en la trampa.
-            SEGUNDO_APELLIDO: document.getElementById("apellido2") ? document.getElementById("apellido2").value.trim() : ""
+            SEGUNDO_APELLIDO: document.getElementById("segundo_apellido") ? document.getElementById("segundo_apellido").value.trim() : ""
         };
         
         console.log("Enviando datos filtrados:", ficha);
