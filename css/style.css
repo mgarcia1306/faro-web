@@ -176,6 +176,27 @@ body {
     font-weight: bold;
 }
 
+.gratis-form {
+    text-align: center;
+    background: #eef4ff;
+    padding: 80px 20px;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.gratis-form h2 {
+    font-size: 2.2rem;
+    color: #0b132b;
+    margin-bottom: 10px;
+}
+
+.gratis-form h3 {
+    font-size: 3.5rem;
+    color: #0057d8;
+    margin-bottom: 25px;
+    font-weight: 800;
+}
+
 .gratis-form ul {
     list-style: none;
     margin: 0 auto 40px auto;
@@ -185,6 +206,21 @@ body {
     padding: 30px;
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(0, 87, 216, 0.05);
+}
+
+.gratis-form li {
+    margin: 15px 0;
+    font-size: 1.1rem;
+    color: #4a5568;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.gratis-form li::before {
+    content: "✓";
+    color: #0057d8;
+    font-weight: bold;
 }
 
 /* SECCIÓN PLANES */
