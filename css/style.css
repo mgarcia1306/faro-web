@@ -28,6 +28,14 @@ body {
 .logo-contenedor {
    width: 200%;
    padding: 15px;
+   border-radius: 50%;     /* ¡Aquí ocurre la magia! Convierte el cuadrado en círculo */
+   overflow: hidden;       /* Recorta las esquinas de la imagen que queden fuera */   
+    /* Centrado e interiores */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #ffffff; /* Fondo blanco por si tu logo es transparente */
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Opcional: Una sombra suave para darle profundidad */
 }
 
 .logo {
