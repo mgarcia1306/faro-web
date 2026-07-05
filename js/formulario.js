@@ -1,5 +1,5 @@
 // =========================================================================
-// 1. CONTROL DE REGIONES (Cobertura)
+// 1. CONTROL DE REGIONES (Cobertura) 
 // =========================================================================
 const todas = document.getElementById("todas-regiones");
 const regiones = document.querySelectorAll(".region");
