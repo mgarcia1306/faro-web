@@ -26,23 +26,39 @@ body {
 }
 
 .logo-contenedor {
-   width: 200%;
-   padding: 15px;
-   border-radius: 50%;     /* ¡Aquí ocurre la magia! Convierte el cuadrado en círculo */
-   overflow: hidden;       /* Recorta las esquinas de la imagen que queden fuera */   
+    width: 120px;           /* Define el ancho (debe ser igual al alto) */
+    height: 120px;          /* Define el alto para que sea un cuadrado perfecto */
+    border-radius: 50%;     /* ¡Aquí ocurre la magia! Convierte el cuadrado en círculo */
+    overflow: hidden;       /* Recorta las esquinas de la imagen que queden fuera */
+    
     /* Centrado e interiores */
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   background-color: #ffffff; /* Fondo blanco por si tu logo es transparente */
-   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Opcional: Una sombra suave para darle profundidad */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff; /* Fondo blanco por si tu logo es transparente */
+    
+    /* Opcional: Una sombra suave para darle profundidad */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+}
+.logo-contenedor img {
+    width: 100%;
+    height: 100%;
+    
+    /* Tip de oro para logos: 'contain' evita que el logo se estire o distorsione */
+    object-fit: contain; 
+    
+    /* Si notas que el logo queda muy pegado a los bordes del círculo, 
+       dale un poco de aire con un padding interno */
+    padding: 15px; 
 }
 
-.logo {
+
+
+/*.logo {
     width: 160px;
     max-width: 80%;
     margin-bottom: 25px;
-}
+}*/
 
 .hero h1 {
     font-size: 2.8rem;
