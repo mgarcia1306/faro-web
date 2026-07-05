@@ -35,7 +35,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff; /* Fondo blanco por si tu logo es transparente */
+    background-color: #ffffff; /* Fondo blanco por si el logo es transparente */
     
     /* Opcional: Una sombra suave para darle profundidad */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
