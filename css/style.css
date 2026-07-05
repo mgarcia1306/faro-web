@@ -20,7 +20,7 @@ body {
 .hero {
     text-align: center;
     padding: 80px 20px;
-    background-image: url("img/hero_bg.png");
+    background-image: url("../img/hero_bg.png");
     background: white;
     border-bottom: 1px solid #e2e8f0;
 }
