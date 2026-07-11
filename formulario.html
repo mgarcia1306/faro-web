@@ -147,13 +147,50 @@
 
       <h2>Servicios o productos de la empresa</h2>
       <label class="form-help" title="Campo obligatorio">
-        <p>Productos o servicios que deseas monitorear (una por línea).</p>
+        <p>Productos o servicios que deseas monitorear.</p>
         <p>La prueba gratuita permite monitorear <strong>hasta 3 productos o servicios específicos.</strong></p>
       </label>
       <div class="form-group">
+        <input type="text" class="campo-requerido" required>
+        <input type="text">
+        <input type="text">
+      </div>
+
+      <h2>Exclusiones</h2>
+      <p>Escribe palabras separadas por comas que sirvan para ignorar ofertas que no te interesan. 
+        Por ejemplo, si vendes impresoras pero no prestas servicio técnico ni arriendas, 
+        puedes escribir "arriendo, servicio técnico".</p>
+
+      
+      <h2>Rango de montos para cotizar</h2>
+      <label class="form-help" title="Campo obligatorio">
+        <p>Define el tamaño de los negocios que FARO buscará para ti. 
+          El monto mínimo te ayuda a descartar compras muy pequeñas que no cubren tus costos de despacho, 
+          mientras que el máximo filtra procesos que superen tu capacidad financiera actual.</p>
+      </label>
+      <div class="form-group">
+        <input type="text" class="campo-requerido" required placeholder="Monto mínimo. Ej.: 5000">
+        <input type="text" class="campo-requerido" required placeholder="Monto máximo. Ej.: 5000000">        
+      </div>
+
+      <h2>Sello Empresa Mujer</h2>
+      <label class="form-help" title="Campo obligatorio">
+        <p>
+          El Estado otorga puntaje adicional en muchas Compras Ágiles a las empresas lideradas por mujeres. 
+          Si tienes este sello activo en ChileProveedores, márcalo aquí para que FARO 
+          calcule tu puntaje de conveniencia con total precisión.
+        </p>
+      </label>
+        <div class="checkbox-group font-small">
+        <label class="checkbox-label" class="campo-requerido" title="Campo obligatorio"><input type="checkbox" required>Sí </label>
+        <label class="checkbox-label" class="campo-requerido" title="Campo obligatorio"><input type="checkbox" required>No </label>
+        </div>
+    
+      
+      <!-- <div class="form-group">
         <textarea id="productos-servicios" rows="4" placeholder="Ejemplo:&#10;instalacion de sistema CCTV&#10;guantes quirurgicos&#10;banqueteria y catering"></textarea>
       </div>
-      
+      -->
       
       <!-- <h2>Servicios o productos de la empresa</h2>
       <label class="form-help" title="Campo obligatorio">
