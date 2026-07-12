@@ -49,6 +49,16 @@ if (form) {
     form.addEventListener("submit", async (e) => {
         // Siempre frenamos el envío nativo al inicio para manejarlo con fetch/validaciones
         e.preventDefault(); 
+
+        // 1. Buscamos el botón de envío dentro del formulario
+        const botonEnvio = form.querySelector('.btn') || form.querySelector('button[type="submit"]');
+
+
+
+
+
+
+        
         
         // JUGADA MAESTRA ANTI-SPAM (HONEYPOT)
         const campoTrampa = document.querySelector("#segundo_apellido input") ? document.querySelector("#segundo_apellido input").value.trim() : "";
@@ -108,6 +118,15 @@ if (form) {
         const elSelloSelect = document.getElementById("sello_mujer");
         const selloMujerValor = elSelloRadio ? elSelloRadio.value : (elSelloSelect ? elSelloSelect.value : "NO");
 
+        // 🚀 LA JUGADA DE FEEDBACK: Activamos el estado "Enviando" justo antes del fetch
+        if (botonEnvio) {
+            botonEnvio.disabled = true; // Bloquea nuevos clicks accidentales
+            botonEnvio.innerText = "Conectando con el Radar..."; // Cambia el texto
+            botonEnvio.style.opacity = "0.7";
+            botonEnvio.style.cursor = "not-allowed";
+        }
+        
+        
         // 🏢 CONSTRUCCIÓN DE LA FICHA CLEAN PARA EL BACKEND
         const ficha = {
             RUT: obtenerValor("rut_empresa"),
@@ -132,10 +151,7 @@ if (form) {
         console.log("Enviando datos estructurados al radar:", ficha);
         
         try {
-            const respuesta = await fetch(URL_SHEETS, { 
-                method: "POST", 
-                body: JSON.stringify(ficha) 
-            });
+            const respuesta = await fetch(URL_SHEETS, {method: "POST", body: JSON.stringify(ficha)});
             const data = await respuesta.json();
             console.log("Respuesta del servidor:", data);
             window.location.href = "gracias.html";
@@ -143,6 +159,13 @@ if (form) {
         catch (error) {
             console.error("Error al enviar a la base de datos:", error);
             alert("No fue posible guardar la información.");
+                // 🔄 Si falla, devolvemos el botón a su estado original para que puedan reintentar
+        if (botonEnvio) {
+                botonEnvio.disabled = false;
+                botonEnvio.innerText = "🚀 ACTIVA TU PRUEBA GRATUITA"; // O el texto original que tenga tu botón
+                botonEnvio.style.opacity = "1";
+                botonEnvio.style.cursor = "pointer";
+            }
         }
     });
 }
