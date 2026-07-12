@@ -101,21 +101,22 @@
 
       <div class="form-group">
         <label for="experiencia" class="campo-requerido" title="Campo obligatorio">¿Has participado antes en Compras Ágiles de Mercado Público?</label>
-        <select id="experiencia">
+        <select id="experiencia" style="margin: 15px 0 0 0; width: 50%; display: block; padding: 8px;">
           <option>Nunca</option>
           <option>Sí, ocasionalmente</option>
           <option>Sí, frecuentemente</option>
         </select>
       </div>
 
-      <div class="form-group">
-        <label for="inscrito" class="campo-requerido" title="Campo obligatorio">¿Estás inscrito en el Registro de Proveedores?</label>
-        <select id="inscrito">
-          <option>Sí</option>
-          <option>No</option>
-          <option>No estoy seguro</option>
-        </select>
-      </div>
+<div class="form-group">
+  <label for="inscrito" class="campo-requerido" title="Campo obligatorio">¿Estás inscrito en el Registro de Proveedores?</label>
+  <!-- Aplicamos el margen, el 50% de ancho y display block para ordenar el flujo -->
+  <select id="inscrito" style="margin: 15px 0 0 0; width: 50%; display: block; padding: 8px;">
+    <option value="SI">Sí</option>
+    <option value="NO">No</option>
+    <option value="NO_SE">No estoy segura/o</option>
+  </select>
+</div>
 
       <h2>Cobertura</h2>
       <label class="campo-requerido" title="Campo obligatorio">
@@ -179,12 +180,12 @@
             <p><strong>Monto mínimo:</strong></p>
             <p>Te ayuda a descartar compras muy pequeñas que no cubren tus costos de despacho, </p>
           </label>
-          <input id="monto_min" style="margin:0 0 15px 0; width:40%" type="text" class="campo-requerido" required="" placeholder="Ejemplo: 5000">
+          <input id="monto_min" type="number" style="margin:0 0 15px 0; width:50%" type="text" class="campo-requerido" required="" placeholder="Ejemplo: 5000">
           <label class="form-help" title="Campo obligatorio">
             <p><strong>Monto máximo:</strong></p> 
             <p>Filtra procesos que superen tu capacidad financiera actual</p>
           </label>
-          <input id="monto_max" style="margin:0 0 15px 0; width:40%" type="text" class="campo-requerido" required="" placeholder="Ejemplo: 5000000">        
+          <input id="monto_max" type="number" style="margin:0 0 15px 0; width:50%" type="text" class="campo-requerido" required="" placeholder="Ejemplo: 5000000">        
       </div>      
 
    <h2>Sello Empresa Mujer</h2>
