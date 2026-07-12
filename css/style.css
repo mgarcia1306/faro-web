@@ -70,6 +70,13 @@ body {
     box-shadow: 0 6px 20px rgba(0, 87, 216, 0.25);
 }
 
+/* EFECTO DE HUNDIDO AL HACER CLICK */
+.btn:active {
+    transform: translateY(2px); /* Se mueve hacia abajo (estaba en -2px en hover) */
+    box-shadow: 0 2px 6px rgba(0, 87, 216, 0.1); /* Sombra mucho más pequeña y sutil */
+    transition: all 0.05s ease; /* Transición ultra rápida para que la respuesta física sea instantánea */
+}
+
 /* ==========================================================================
    LANDING PAGE (INDEX.HTML)
    ========================================================================== */
