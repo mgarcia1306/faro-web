@@ -20,7 +20,6 @@ regiones.forEach(r => {
 
 function obtenerRegionesSeleccionadas() {
     // EXCEPCIÓN: Si "Todas las regiones" está marcado, devolvemos un array vacío.
-    // Esto hará que en Google Sheets la celda quede completamente vacía.
     if (todas && todas.checked) {
         return [];
     }
@@ -30,13 +29,7 @@ function obtenerRegionesSeleccionadas() {
     return seleccionadas;
 }
 
-// =========================================================================
-// 2. ENVÍO DEL FORMULARIO A GOOGLE SHEETS
-// =========================================================================
-const URL_SHEETS = "https://script.google.com/macros/s/AKfycbxcLLZF3G_SMuKiqhsvyPkAnhAm7rxbCQmG_h8qRufr0A6H1p6U4fqfL0UqTwzFIBtF/exec";
-const form = document.getElementById("clienteForm");
-
-// Función asistente para campos normales
+// Function asistente para capturar textos limpios
 function obtenerValor(id) {
     const el = document.getElementById(id);
     if (!el || el.offsetParent === null) {
@@ -45,11 +38,26 @@ function obtenerValor(id) {
     return el.value.trim();
 }
 
+
+// =========================================================================
+// 2. PROCESAMIENTO Y ENVÍO CENTRALIZADO
+// =========================================================================
+const URL_SHEETS = "https://script.google.com/macros/s/AKfycbxcLLZF3G_SMuKiqhsvyPkAnhAm7rxbCQmG_h8qRufr0A6H1p6U4fqfL0UqTwzFIBtF/exec";
+const form = document.getElementById("clienteForm");
+
 if (form) {
     form.addEventListener("submit", async (e) => {
-        e.preventDefault();
+        // Siempre frenamos el envío nativo al inicio para manejarlo con fetch/validaciones
+        e.preventDefault(); 
         
-        // Validar correos
+        // JUGADA MAESTRA ANTI-SPAM (HONEYPOT)
+        const campoTrampa = document.querySelector("#segundo_apellido input") ? document.querySelector("#segundo_apellido input").value.trim() : "";
+        if (campoTrampa !== "") {
+            console.warn("Spam detectado. Bloqueando envío silenciosamente.");
+            return; // Muere la ejecución aquí
+        }
+        
+        // VALIDACIÓN DE CORREOS
         const correo = obtenerValor("correo");
         const correo2 = obtenerValor("correo2");
         if (correo && correo2 && correo !== correo2) {
@@ -57,61 +65,83 @@ if (form) {
             return;
         }
         
-        // Validar regiones (Modificado para permitir vacío si "Todas las regiones" está marcado)
+        // VALIDACIÓN DE REGIONES
         const regionesSeleccionadas = obtenerRegionesSeleccionadas();
         if (regionesSeleccionadas.length === 0 && (!todas || !todas.checked)) {
             alert("Debes seleccionar al menos una región de cobertura.");
             return;
         }
 
-        // PROCESAMIENTO DEL TEXTAREA (Productos/Servicios)
-        const txtProductos = obtenerValor("productos-servicios");
-        let listaProductos = txtProductos
-            .split("\n")
-            .map(linea => linea.trim())
-            .filter(linea => linea !== "");
+        // VALIDACIÓN ANTIPILOS: 3 PRODUCTOS/SERVICIOS (Al menos uno obligatorio)
+        const input1 = document.getElementById('prod_1');
+        if (input1) input1.setCustomValidity(""); // Limpieza previa
+
+        const p1 = obtenerValor('prod_1');
+        const p2 = obtenerValor('prod_2');
+        const p3 = obtenerValor('prod_3');
+        const listaProductos = [p1, p2, p3].filter(producto => producto !== "");
 
         if (listaProductos.length === 0) {
-            alert("Por favor, ingresa al menos un producto o servicio para monitorear.");
+            if (input1) {
+                input1.setCustomValidity("Por favor, escribe al menos un producto o servicio para tu radar.");
+                input1.reportValidity();
+            } else {
+                alert("Por favor, ingresa al menos un producto o servicio.");
+            }
             return;
         }
-        if (listaProductos.length > 3) {
-            alert("La prueba gratuita solo permite monitorear un máximo de 3 productos o servicios.");
-            return;
-        }
+        const productosFormateados = listaProductos.join("|");
 
-        const productosFormateados = listaProductos.join(" | ");
+        // PROCESAMIENTO DE EXCLUSIONES (Opcionales, unidos por Pipe)
+        const e1 = obtenerValor('exc_1');
+        const e2 = obtenerValor('exc_2');
+        const e3 = obtenerValor('exc_3');
+        const listaExclusiones = [e1, e2, e3].filter(exc => exc !== "");
+        const exclusionesUnidas = listaExclusiones.join('|');
 
-        // CONSTRUCCIÓN DE LA FICHA CLEAN
+        // CAPTURA DE NUEVOS FILTROS (Montos y Sello)
+        const montoMinimo = obtenerValor("monto_min");
+        const montoMaximo = obtenerValor("monto_max");
+        
+        // Rescatamos Sello Mujer (Funciona si es Select o Radio Buttons con name="Sello_Mujer")
+        const elSelloRadio = document.querySelector('input[name="Sello_Mujer"]:checked');
+        const elSelloSelect = document.getElementById("sello_mujer");
+        const selloMujerValor = elSelloRadio ? elSelloRadio.value : (elSelloSelect ? elSelloSelect.value : "NO");
+
+        // 🏢 CONSTRUCCIÓN DE LA FICHA CLEAN PARA EL BACKEND
         const ficha = {
             RUT: obtenerValor("rut_empresa"),
             EMPRESA: obtenerValor("empresa"),
             CONTACTO: obtenerValor("contacto"),
             CORREO: correo,
-            WHATSAPP: obtenerValor("whatsapp"), // Sincronizado con el nombre exacto de tu columna
+            WHATSAPP: obtenerValor("whatsapp"), 
             REGION: obtenerValor("region"), 
             EXPERIENCIA: obtenerValor("experiencia"),
             INSCRITO: obtenerValor("inscrito"),
-            COBERTURA: regionesSeleccionadas, // Enviará [] si seleccionó todas
+            COBERTURA: regionesSeleccionadas, // Enviará [] si seleccionó "Todas"
             PRODUCTOS_SERVICIOS: productosFormateados, 
+            EXCLUSIONES: exclusionesUnidas,
+            MONTO_MIN: montoMinimo,
+            MONTO_MAX: montoMaximo,
+            SELLO_MUJER: selloMujerValor,
             PLAN: "GRATUITO",
             ESTADO: "activo",
-            ULTIMO_CORREO: "",
-            
-            // FILTRO SPAM (HONEYPOT): Selector correcto apuntando al input dentro del div
-            SEGUNDO_APELLIDO: document.querySelector("#segundo_apellido input") ? document.querySelector("#segundo_apellido input").value.trim() : ""
+            ULTIMO_CORREO: ""
         };
         
-        console.log("Enviando datos filtrados:", ficha);
+        console.log("Enviando datos estructurados al radar:", ficha);
         
         try {
-            const respuesta = await fetch(URL_SHEETS, { method: "POST", body: JSON.stringify(ficha) });
+            const respuesta = await fetch(URL_SHEETS, { 
+                method: "POST", 
+                body: JSON.stringify(ficha) 
+            });
             const data = await respuesta.json();
-            console.log(data);
+            console.log("Respuesta del servidor:", data);
             window.location.href = "gracias.html";
         }
         catch (error) {
-            console.error(error);
+            console.error("Error al enviar a la base de datos:", error);
             alert("No fue posible guardar la información.");
         }
     });
