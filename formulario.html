@@ -151,41 +151,56 @@
         <p>La prueba gratuita permite monitorear <strong>hasta 3 productos o servicios específicos.</strong></p>
       </label>
       <div class="form-group">
-        <input type="text" class="campo-requerido" required>
-        <input type="text">
-        <input type="text">
+          <input id="prod_1" style="margin:15px 0 0 0; width:50%;" type="text" class="campo-requerido">
+          <input id="prod_2" style="margin:15px 0 0 0; width:50%;" type="text" class="campo-requerido">
+          <input id="prod_3" style="margin:15px 0 0 0; width:50%;" type="text" class="campo-requerido">
       </div>
 
-      <h2>Exclusiones</h2>
-      <p>Escribe palabras separadas por comas que sirvan para ignorar ofertas que no te interesan. 
-        Por ejemplo, si vendes impresoras pero no prestas servicio técnico ni arriendas, 
-        puedes escribir "arriendo, servicio técnico".</p>
+
+      <h2>Excluir oportunidades</h2>
+    <label class="form-help" title="Campo opcional">
+      <p>Productos o servicios que NO deseas monitorear.</p>
+      <p>Puedes configurar <strong>hasta 3 exclusiones</strong> para ignorar ofertas que no te interesan.</p>
+    </label>
+    <div class="form-group">
+      <!-- Tres casillas limpias con IDs únicos -->
+      <input id="exc_1" style="margin:15px 0 0 0; width:50%;" type="text" placeholder="Ej: arriendo">
+      <input id="exc_2" style="margin:15px 0 0 0; width:50%;" type="text" placeholder="Ej: servicio técnico">
+      <input id="exc_3" style="margin:15px 0 0 0; width:50%;" type="text" placeholder="Ej: instalación">
+    </div>
 
       
       <h2>Rango de montos para cotizar</h2>
       <label class="form-help" title="Campo obligatorio">
-        <p>Define el tamaño de los negocios que FARO buscará para ti. 
-          El monto mínimo te ayuda a descartar compras muy pequeñas que no cubren tus costos de despacho, 
-          mientras que el máximo filtra procesos que superen tu capacidad financiera actual.</p>
+        <p>Define el tamaño de los negocios que FARO buscará para ti. </p>
       </label>
       <div class="form-group">
-        <input type="text" class="campo-requerido" required placeholder="Monto mínimo. Ej.: 5000">
-        <input type="text" class="campo-requerido" required placeholder="Monto máximo. Ej.: 5000000">        
-      </div>
+          <label class="form-help" title="Campo obligatorio">
+            <p><strong>Monto mínimo:</strong></p>
+            <p>Te ayuda a descartar compras muy pequeñas que no cubren tus costos de despacho, </p>
+          </label>
+          <input style="margin:0 0 15px 0; width:40%" type="text" class="campo-requerido" required="" placeholder="Ejemplo: 5000">
+          <label class="form-help" title="Campo obligatorio">
+            <p><strong>Monto máximo:</strong></p> 
+            <p>Filtra procesos que superen tu capacidad financiera actual</p>
+          </label>
+          <input style="margin:0 0 15px 0; width:40%" type="text" class="campo-requerido" required="" placeholder="Ejemplo: 5000000">        
+      </div>      
 
-      <h2>Sello Empresa Mujer</h2>
-      <label class="form-help" title="Campo obligatorio">
-        <p>
-          El Estado otorga puntaje adicional en muchas Compras Ágiles a las empresas lideradas por mujeres. 
-          Si tienes este sello activo en ChileProveedores, márcalo aquí para que FARO 
-          calcule tu puntaje de conveniencia con total precisión.
-        </p>
-      </label>
-        <div class="checkbox-group font-small">
-        <label class="checkbox-label" class="campo-requerido" title="Campo obligatorio"><input type="checkbox" required>Sí </label>
-        <label class="checkbox-label" class="campo-requerido" title="Campo obligatorio"><input type="checkbox" required>No </label>
-        </div>
-    
+   <h2>Sello Empresa Mujer</h2>
+    <p>¿Tu empresa cuenta con Sello Mujer activo? <span style="color: red;">*</span></p>
+    <p>El Estado otorga puntaje adicional en muchas Compras Ágiles a las empresas lideradas por mujeres.</p>  
+    <div class="form-group" style="margin:15px 0 0 0;">
+        <label>
+            <!-- Al ponerle 'required', el navegador obliga a marcar uno de los dos -->
+            <input type="radio" name="Sello_Mujer" value="SI" required> 
+            <span>Sí, tengo el sello activo</span>
+        </label>     
+        <label>
+            <input type="radio" name="Sello_Mujer" value="NO"> 
+            <span>No, no lo tengo</span>
+        </label>
+    </div>
       
       <!-- <div class="form-group">
         <textarea id="productos-servicios" rows="4" placeholder="Ejemplo:&#10;instalacion de sistema CCTV&#10;guantes quirurgicos&#10;banqueteria y catering"></textarea>
@@ -200,12 +215,6 @@
         <input type="text" id="buscar" placeholder="Buscar producto o servicio...">
         <div id="resultados"></div>
         <div id="seleccionados"></div>
-      </div> -->
-
-      <!-- <h2>Excluir oportunidades</h2>
-      <label class="form-help" title="Campo obligatorio">Productos o servicios que NO desea monitorear (una por línea).</label>
-      <div class="form-group">
-        <textarea id="excluir" rows="4" placeholder="Ejemplo:&#10;hospital&#10;casino&#10;alimentación"></textarea>
       </div> -->
 
      <!-- <h2>Tipo de oportunidades</h2>
