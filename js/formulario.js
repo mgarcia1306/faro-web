@@ -51,14 +51,7 @@ if (form) {
         e.preventDefault(); 
 
         // 1. Buscamos el botón de envío dentro del formulario
-        const botonEnvio = form.querySelector('.btn') || form.querySelector('button[type="submit"]');
-
-
-
-
-
-
-        
+        const botonEnvio = form.querySelector('.btn') || form.querySelector('button[type="submit"]');        
         
         // JUGADA MAESTRA ANTI-SPAM (HONEYPOT)
         const campoTrampa = document.querySelector("#segundo_apellido input") ? document.querySelector("#segundo_apellido input").value.trim() : "";
@@ -82,7 +75,7 @@ if (form) {
             return;
         }
 
-        // VALIDACIÓN ANTIPILOS: 3 PRODUCTOS/SERVICIOS (Al menos uno obligatorio)
+        // VALIDACIÓN ANTIPILLOS: 3 PRODUCTOS/SERVICIOS (Al menos uno obligatorio)
         const input1 = document.getElementById('prod_1');
         if (input1) input1.setCustomValidity(""); // Limpieza previa
 
@@ -154,7 +147,25 @@ if (form) {
             const respuesta = await fetch(URL_SHEETS, {method: "POST", body: JSON.stringify(ficha)});
             const data = await respuesta.json();
             console.log("Respuesta del servidor:", data);
-            window.location.href = "gracias.html";
+            // 🚥 CONTROL DE FLUJO SEGÚN RESPUESTA DEL BACKEND
+            if (data.success) {
+                // Humano nuevo impecable -> va a página de gracias
+                window.location.href = "gracias.html";
+            }
+            else if (data.motivo === "PRUEBA_CADUCADA") {
+                // 🛑 ATANQUE MAESTRO: Ya usó sus 30 días gratis -> Redirección inmediata a planes de pago
+                window.location.href = "planes.html";
+            }
+            else if (data.motivo === "RADAR_ACTIVO") {
+                // Ya se encuentra registrado y vigente -> Se le avisa amablemente y se libera el botón
+                alert("¡Atención! Esta empresa o correo ya cuenta con un Radar activo y escaneando Mercado Público. Si necesitas modificar tus palabras clave o tienes dudas, por favor contáctanos.");
+                if (botonEnvio) {
+                    botonEnvio.disabled = false;
+                    botonEnvio.innerText = "🚀 ACTIVA TU PRUEBA GRATUITA"; 
+                    botonEnvio.style.opacity = "1";
+                    botonEnvio.style.cursor = "pointer";
+                }
+            }
         }
         catch (error) {
             console.error("Error al enviar a la base de datos:", error);
@@ -162,7 +173,7 @@ if (form) {
                 // 🔄 Si falla, devolvemos el botón a su estado original para que puedan reintentar
         if (botonEnvio) {
                 botonEnvio.disabled = false;
-                botonEnvio.innerText = "🚀 ACTIVA TU PRUEBA GRATUITA"; // O el texto original que tenga tu botón
+                botonEnvio.innerText = "🚀 ACTIVA TU PRUEBA GRATUITA"; // Acá cambiamos el teto del botón
                 botonEnvio.style.opacity = "1";
                 botonEnvio.style.cursor = "pointer";
             }
