@@ -42,7 +42,7 @@ function obtenerValor(id) {
 // =========================================================================
 // 2. PROCESAMIENTO Y ENVÍO CENTRALIZADO
 // =========================================================================
-const URL_SHEETS = "https://script.google.com/macros/s/AKfycbwFYBJc42lrf5LP57fXgYBC1kGJqLyFZB28WyDrvYeMRJ9U2VxUuevdmDo57nJ6JRL0/exec";
+const URL_SHEETS = "https://script.google.com/macros/s/AKfycbwyrr8cOibHZVC0KFuDzvQqnNzR8pba0oa8OxxUgW5iYjvrUIeBcqDU457q4OOw6JhI/exec";
 const form = document.getElementById("clienteForm");
 
 if (form) {
