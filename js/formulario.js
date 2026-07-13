@@ -38,6 +38,22 @@ function obtenerValor(id) {
     return el.value.trim();
 }
 
+function formatearRUT(rut) {
+  // 1. Limpiamos todo (quitamos puntos, guiones y espacios) y pasamos a mayúsculas
+  let limpio = rut.replace(/[^0-9kK]/g, '').toUpperCase();
+  if (limpio.length < 2) return limpio;
+  
+  // 2. Separamos el dígito verificador del cuerpo
+  let cuerpo = limpio.slice(0, -1);
+  let dv = limpio.slice(-1);
+  
+  // 3. Le agregamos los puntos al cuerpo usando una expresión regular
+  cuerpo = cuerpo.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  
+  // 4. Retornamos el formato oficial que te pide Mercado Público
+  return `${cuerpo}-${dv}`;
+}
+
 
 // =========================================================================
 // 2. PROCESAMIENTO Y ENVÍO CENTRALIZADO
@@ -122,7 +138,7 @@ if (form) {
         
         // 🏢 CONSTRUCCIÓN DE LA FICHA CLEAN PARA EL BACKEND
         const ficha = {
-            RUT: obtenerValor("rut_empresa"),
+            RUT: formatearRUT(obtenerValor("rut_empresa")),
             EMPRESA: obtenerValor("empresa"),
             CONTACTO: obtenerValor("contacto"),
             CORREO: correo,
